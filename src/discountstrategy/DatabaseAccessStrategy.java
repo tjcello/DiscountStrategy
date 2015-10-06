@@ -7,8 +7,12 @@ package discountstrategy;
 
 /**
  *
- * @author tduwe
+ * @author Thomas
  */
-public interface ReceiptOutputStrategy {
+public interface DatabaseAccessStrategy {
     
+    Customer findCustomer(final String custId);
+
+    
+    Product findProduct(final String prodId);
 }

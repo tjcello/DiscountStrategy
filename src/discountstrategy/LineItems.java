@@ -9,16 +9,25 @@ package discountstrategy;
  *
  * @author Thomas
  */
-public class ListItems {
+public class LineItems {
     private int qty;
     private Product product;
+    private DatabaseAccessStrategy db;
 
-    public ListItems(int qty, Product product) {
+    public LineItems(DatabaseAccessStrategy db, int qty, Product product) {
+        this.db = db;
         this.qty = qty;
         this.product = product;
     }
 
+    public LineItems(){
+        
+    }
    
+    private final Product findProduct(final String prodId){
+        //validation needed
+        return db.findProduct(prodId);
+    }
     
     public double getSubtotal(){
         return product.getUnitPrice() * qty;
@@ -55,14 +64,14 @@ public class ListItems {
     public void setProduct(Product product) {
         this.product = product;
     }
-    
-    public static void main(String[] args) {
-        ListItems items = new ListItems(4, new Product("A100","Shorts", 40.00, new PercentOffDiscount(.25)));
-        double subtotal = items.getSubtotal();
-        double subtotalDiscount = items.getSubtotalDiscount();
-        
-        System.out.println("My number should be 160 and it is: " + subtotal);
-        System.out.println("My discount should be 40 and it is: " + subtotalDiscount);
-        
+
+    public DatabaseAccessStrategy getDb() {
+        return db;
     }
+
+    public void setDb(DatabaseAccessStrategy db) {
+        this.db = db;
+    }
+    
+    
 }

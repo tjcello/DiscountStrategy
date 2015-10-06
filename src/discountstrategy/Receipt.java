@@ -7,7 +7,7 @@ package discountstrategy;
  */
 public class Receipt{
     private double qty;    
-    public FakeDatabase database;
+    private DatabaseAccessStrategy db;
 
   
     
