@@ -14,7 +14,7 @@ public class LineItems {
     private Product product;
     private DatabaseAccessStrategy db;
 
-    public LineItems(DatabaseAccessStrategy db, int qty, Product product) {
+    public LineItems(DatabaseAccessStrategy db, int qty, String prodId) {
         this.db = db;
         this.qty = qty;
         this.product = product;
